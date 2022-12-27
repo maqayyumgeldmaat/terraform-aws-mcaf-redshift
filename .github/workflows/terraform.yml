@@ -7,8 +7,6 @@ on:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-permissions: write-all
-
 jobs:
   terraform-fmt:
     runs-on: ubuntu-latest
@@ -44,6 +42,8 @@ jobs:
 
   terraform-docs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out code
         uses: actions/checkout@v2
