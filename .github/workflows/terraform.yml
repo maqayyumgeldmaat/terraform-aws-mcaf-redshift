@@ -4,13 +4,10 @@ name: Terraform
 on:
   pull_request:
 
-permissions:
-  pull-requests: write
-  issues: write
-  repository-projects: write
-
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+permissions: write-all
 
 jobs:
   terraform-fmt:
