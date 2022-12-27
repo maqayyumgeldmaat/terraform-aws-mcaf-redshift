@@ -42,13 +42,13 @@ jobs:
 
   terraform-docs:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - name: Check out code
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: false
+          fetch-depth: 0
       - name: Update module usage docs and push any changes back to PR branch
         uses: Dirrk/terraform-docs@v1.0.8
         with:
